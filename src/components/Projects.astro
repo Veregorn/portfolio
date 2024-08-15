@@ -1,0 +1,110 @@
+---
+import HTML from "../icons/HTML.astro";
+import CSS from "../icons/CSS.astro";
+import Javascript from "../icons/Javascript.astro";
+import React from "../icons/React.astro";
+import NodeJS from "../icons/Node.astro";
+import MongoDB from "../icons/MongoDB.astro";
+import JWT from "../icons/JWT.astro";
+import OpenAI from "../icons/OpenAI.astro";
+import MaterialUI from "../icons/MaterialUI.astro";
+import LinkedInAPI from "../icons/LinkedInIcon.astro";
+
+const TAGS = {
+    HTML: {
+        icon: HTML,
+        name: "HTML",
+        class: "bg-black text-white"
+    },
+    CSS: {
+        icon: CSS,
+        name: "CSS",
+        class: "bg-black text-white"
+    },
+    Javascript: {
+        icon: Javascript,
+        name: "Javascript",
+        class: "bg-black text-white"
+    },
+    React: {
+        icon: React,
+        name: "React",
+        class: "bg-black text-white"
+    },
+    NodeJS: {
+        icon: NodeJS,
+        name: "NodeJS",
+        class: "bg-black text-white"
+    },
+    MongoDB: {
+        icon: MongoDB,
+        name: "MongoDB",
+        class: "bg-black text-white"
+    },
+    JWT: {
+        icon: JWT,
+        name: "JWT",
+        class: "bg-black text-white"
+    },
+    OpenAI: {
+        icon: OpenAI,
+        name: "OpenAI",
+        class: "bg-black text-white"
+    },
+    MaterialUI: {
+        icon: MaterialUI,
+        name: "Material UI",
+        class: "bg-black text-white"
+    },
+    LinkedInAPI: {
+        icon: LinkedInAPI,
+        name: "LinkedIn API",
+        class: "bg-black text-white"
+    }
+}
+
+const PROJECTS = [
+    {
+        title: "DevNews en Español",
+        description: "DevNews en Español es una plataforma que recopila las noticias más importantes del día en el mundo del desarrollo de software, las resume y traduce mediante IA, y las publica automáticamente en un blog. Además, comparte los títulos de estas noticias en LinkedIn, atrayendo a los usuarios a leer más en el blog.",
+        link: "https://project-blog-api-client.vercel.app",
+        image: "/projects/devnews-screenshot.webp",
+        tags: [TAGS.HTML, TAGS.CSS, TAGS.Javascript, TAGS.React, TAGS.NodeJS, TAGS.MongoDB, TAGS.JWT, TAGS.OpenAI, TAGS.MaterialUI, TAGS.LinkedInAPI]
+    },
+    {
+        title: "JEWM Shop",
+        description: "Un e-commerce moderno con React en el Frontend. Se hace un uso intensivo de useState y useEffect para gestionar el estado de la aplicación.",
+        link: "https://top-shopping-cart-two.vercel.app",
+        image: "/projects/jewm-shop-screenshot(not-optimized).png",
+        tags: [TAGS.HTML, TAGS.CSS, TAGS.Javascript, TAGS.React]
+    }
+]
+---
+
+{
+    PROJECTS.map(({ title, description, image, tags, link }) => (
+        <article>
+            <h3 class="text-lg font-semibold text-lime-300/80 mb-2">{title}</h3>
+            <p class="text-base mb-4 text-gray-400 text-pretty">{description}</p>
+            <ul class="flex flex-row flex-wrap gap-x-2 mb-2">
+                {tags.map((tag) => (
+                    <li class="mb-2">
+                        <span class={`flex gap-x-2 rounded-full text-xs px-2 py-1 border border-white/20 ${tag.class}`}>
+                            <tag.icon class="size-4" />
+                            {tag.name}
+                        </span>
+                    </li>
+                ))}
+            </ul>
+            <div class="flex gap-x-4 mb-4">
+                <a href={link} target="_blank" rel="noopener" class="text-white cursor-pointer hover:opacity-50">
+                    <img
+                        class="rounded shadow-2xl shadow-white/10" 
+                        src={image} 
+                        alt={`Captura de pantalla del proyecto ${title}`} 
+                    />
+                </a>
+            </div>
+        </article>
+    ))
+}

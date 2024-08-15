@@ -1,0 +1,26 @@
+---
+import ExperienceItem from "./ExperienceItem.astro"
+
+const EXPERIENCE = [
+    {
+        date: "2007 - 2022",
+        title: "Guiagas Asistencia SL - Socio y Director de Operaciones (COO)",
+        description: "Durante casi 15 años, cofundé y dirigí una empresa en el sector energético, donde desarrollé y perfeccioné una amplia gama de habilidades de gestión y técnicas. Entre mis responsabilidades principales se incluyen: Desarrollo de Software: Diseñé y desarrollé un CRM personalizado desde cero (PHP + MySQL) para optimizar la gestión de la empresa. Gestión Empresarial: Coordiné y gestioné equipos pequeños, asegurando una operación eficiente y el cumplimiento de los objetivos estratégicos de la empresa. Operaciones Técnicas: Realicé trabajo técnico especializado en la reparación y mantenimiento de equipos a gas, asegurando altos estándares de calidad y seguridad. Crecimiento Empresarial: Participé activamente en la planificación y ejecución de estrategias para el crecimiento y expansión de la empresa, lo que resultó en su exitosa venta en 2022.",
+    },
+    {
+        date: "2005 - 2007",
+        title: "Atos Spain SA - Backend Developer en Banco Santander",
+        description: "En mi rol como Backend Developer en el Banco Santander, fui parte integral del equipo encargado de implementar y mantener los sistemas de manejo de divisas en diversas transacciones. Mis responsabilidades incluían: Desarrollo y Mantenimiento de Sistemas: Trabajé en la implementación y mejora de los sistemas de manejo de divisas utilizando la plataforma propietaria del banco, Sigom. Aseguré que los sistemas fueran eficientes, seguros y cumplieran con las normativas internacionales. Integración de Sistemas: Colaboré en la integración de los sistemas de manejo de divisas con otras plataformas internas y externas, garantizando una interoperabilidad fluida y eficiente. Optimización de Procesos: Realicé análisis y optimizaciones de los procesos de backend para mejorar el rendimiento y la fiabilidad de las transacciones financieras. Colaboración Interdepartamental: Trabajé en estrecha colaboración con otros departamentos, incluyendo front-end, QA y operaciones, para asegurar la cohesión y el éxito de los proyectos. Solución de Problemas: Abordé y resolví problemas técnicos complejos, proporcionando soluciones efectivas y rápidas para asegurar la continuidad del servicio.",
+    },
+]
+---
+
+<ol class="relative border-s border-gray-200 ml-3">
+    {
+        EXPERIENCE.map((experience) => (
+            <li class="mb-10 ms-4">
+                <ExperienceItem { ...experience } />
+            </li>
+        ))
+    }
+</ol>
