@@ -1,4 +1,4 @@
-<header class="flex justify-between items-center px-4 py-5 w-full xl:w-[1120px] mx-auto">
+<header id="header" class="flex fixed justify-between items-center px-4 py-5 w-full xl:w-[1120px] mx-auto bg-transparent z-40">
     <img
         class="size-20 rounded-full" 
         src="/profile-pic.png" 
@@ -11,7 +11,24 @@
         <a href="#contacto">Contacto</a>
     </nav>
 </header>
+<script>
+    // Vamos a hacer que cuando el usuario haga scroll hacia abajo, el fondo del header se vuelva de color negro
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            const scrollTop = window.scrollY;
+            const windowHeight = window.innerHeight;
 
+            // Calculamos la opacidad en función del scroll
+            let opacity = scrollTop / (windowHeight / 4); // Ajusta la división para cambiar la velocidad de la transición
+
+            // Limitar la opacidad entre 0 y 1
+            if (opacity > 1) opacity = 1;
+            if (opacity < 0) opacity = 0;
+
+            // Aplicamos la opacidad al header
+            if (header) header.style.backgroundColor = `rgba(0, 0, 0, ${opacity})`;
+    });
+</script>
 <style>
     /* When window width is less than 615px, header flex direction in column */
 	@media (max-width: 615px) {
@@ -19,10 +36,12 @@
 			flex-direction: column;
             align-items: center;
             gap: 1rem;
+            position: relative;
 		}
 
         nav {
             flex-direction: column;
+            align-items: center;
             gap: 1rem;
         }
 	}
